@@ -1,6 +1,11 @@
+const { catchAsyncError } = require("../middlewares/catchAsyncError");
+const ErrorHandler = require("../utils/errorHandler");
 
 
-// Exporting the controller function
- exports.myFirstFunction = async (req, res) => {
-  return res.status(200).json("MZAAA AAGAYa");  // Sample response
-};
+exports.newUser =  catchAsyncError((req,res, next) => {
+  const userExist = true;
+  if(userExist){
+    return next(new ErrorHandler("User Already Exist", 400));
+  }
+  return res.status(200).json({message: "Retucsre rres"})
+})

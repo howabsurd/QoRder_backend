@@ -1,8 +1,7 @@
-const express = require("express");
-const { myFirstFunction } = require("../controllers");  // Correct path
-
+const express = require("express"); // Correct path
+const {newUser} = require("../controllers/index")
 const router = express.Router();
 
-router.get("/api", myFirstFunction);  // Routing to your controller
+router.get("/",newUser)
 
-module.exports = { router };
+module.exports = router;
